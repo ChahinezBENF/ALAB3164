@@ -203,6 +203,7 @@ const keepLogged = loginForm.elements["persist"];
 
 
 
+
 //1 -  Login Form - Username Validation:
 // * The username must exist (within localStorage).
 function logginUsername(username){
@@ -236,6 +237,8 @@ loginForm.addEventListener("submit" , function(e){
 
     const userName = loginUsername.value.trim();
     const passWord = loginPassword.value.trim();
+
+  
     //username validation
     const verifUser = logginUsername(userName);
     if (!verifUser) {
@@ -251,8 +254,6 @@ loginForm.addEventListener("submit" , function(e){
         return;
     }
 
-    // * If all validation is successful, clear all form fields and show a success message.
-    clearForm();
     // * If "Keep me logged in" is checked, modify the success message to indicate this (normally, 
     //   this would be handled by a variety of persistent login tools and technologies).
     if (keepLogged.checked) {
@@ -260,5 +261,8 @@ loginForm.addEventListener("submit" , function(e){
     } else {
         showSuccess("Login successful!");
     }
+    
+    // * If all validation is successful, clear all form fields and show a success message.
+    clearForm();
 
 });
